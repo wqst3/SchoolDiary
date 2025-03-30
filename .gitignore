@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+venv/
+bot.db
+.env
+timetable.jpg
+
