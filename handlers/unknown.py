@@ -5,6 +5,8 @@ from aiogram.types import Message
 from database.unknowns import addUnknown, inUnknowns, deleteUnknown, updateSMID
 from database.users import addUser
 
+from states import States
+
 from config import bot
 
 
@@ -15,6 +17,8 @@ router = Router()
 async def startCmd(message: Message):
     try:
         print(f"info: {message.from_user.id} unknown startCmd")
+
+        await state.set_state(States.student)
 
         await bot.delete_message(message.chat.id, message.message_id)
 
