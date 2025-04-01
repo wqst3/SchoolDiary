@@ -1,6 +1,7 @@
 from aiogram import Router
 from aiogram.filters import Command
 from aiogram.types import Message
+from aiogram.fsm.context import FSMContext
 
 from database.unknowns import addUnknown, inUnknowns, deleteUnknown, updateSMID
 from database.users import addUser
@@ -14,7 +15,7 @@ router = Router()
 
 
 @router.message(Command('start'))
-async def startCmd(message: Message):
+async def startCmd(message: Message, state: FSMContext):
     try:
         print(f"info: {message.from_user.id} unknown startCmd")
 
